@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 14:22:28 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/08 00:29:59 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/08 01:15:10 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,13 @@ void	ft_putnbr(int ptr);
 
 int		main()
 {
-	int		tab [10];
+	int		tab[10];
+	int		tab2[10];
+	int		*ptr[2];
 
-	tab[0] = 42;
-	ft_putnbr(tab[0]);
+	ptr[0] = tab;
+	ptr[1] = tab2;
+	ptr[1][3] = 42;
+	ft_putnbr(tab2[3]);
 	return (0);
 }

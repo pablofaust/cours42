@@ -6,15 +6,31 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/07 22:41:24 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/07 22:49:43 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/08 01:42:25 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char c);
 
-int		ft_rush01(int x, int y)
+int		ft_rush01(int x)
 {
+	int 	a;
+	int		nbr;
+
+	nbr = 0;
+	a = 42;
+
 	ft_putchar(x);
-	ft_putchar(y);
+	while (x != 0)
+	{
+		nbr++;
+		x = x - 1;
+	}
+
+	while (nbr <= x)
+	{
+		ft_putchar(a);
+		nbr--;
+	}
 	return(0);
 }
