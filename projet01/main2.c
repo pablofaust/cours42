@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 14:22:28 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/08 03:09:25 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/08 03:49:34 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,40 @@ int		ft_rush01(int x, int y)
 	c = 92;
 	nbr_col = ft_nbr_col(x);
 	nbr_li = ft_nbr_li(y);
-
-	while (nbr_li >= 0)
+	
+	if (nbr_li >= 0)
 	{
+		ft_putchar(47);
+		nbr_col = nbr_col - 2;
 		while (nbr_col >= 0)
 		{
 			ft_putchar(a);
 			nbr_col--;
 		}
+		ft_putchar(92);
 		ft_putchar('\n');
-		nbr_li --;
-		nbr_col = ft_nbr_col(x);
+		nbr_li--;
 	}
+	nbr_li = ft_nbr_li(y) - 1;
+	nbr_col = ft_nbr_col(x);
+
+	while (nbr_col >= 0)
+	{
+		ft_putchar(42);
+		nbr_col = nbr_col - 2;
+		while (nbr_col >= 0)
+		{
+			ft_putchar(' ');
+			nbr_col--;
+		}
+		ft_putchar(42);
+	}
+
 	return (0);
 }
 
 int 	main()
 {
-	ft_rush01(5, 5);
+	ft_rush01(12, 5);
 	return(0);
 }
