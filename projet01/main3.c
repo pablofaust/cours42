@@ -6,65 +6,95 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 14:22:28 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/08 04:22:35 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/08 05:18:51 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char c);
 
-int		ft_nbr_col(int n)
-{
-	int nbr_col;
-
-	nbr_col = 0;
-	while (n != 0)
-	{
-		nbr_col++;
-		n = n - 1;
-	}
-	return (nbr_col);
-}
-
-int		ft_nbr_li(int n)
-{
-	int nbr_li;
-
-	nbr_li = 0;
-	while (n != 0)
-	{
-		nbr_li++;
-		n = n - 1;
-	}
-	return (nbr_li);
-}
+void	ft_putnbr(int n);
 
 int		ft_rush01(int x, int y)
 {
 	int a = 1;
+	int b = 1;
 
-	while (a <= x)
+	while (b <= y)
 	{
-		if(a == 1)
+		if (b == 1)
 		{
-			ft_putchar(47);
+			while (a <= x)
+			{
+				if(a == 1)
+				{	
+					ft_putchar(47);
+				}
+
+				else if (a == x)
+				{
+					ft_putchar(92);
+				}		
+
+				else
+				{
+					ft_putchar(42);
+				}
+				a++;
+			}
 		}
 
-		else if (a == x)
+		else if (b == y)
 		{
-			ft_putchar(92);
+			while (a <= x)
+			{
+				if (a == 1)
+				{
+					ft_putchar(92);
+				}		
+
+				else if (a == x)
+				{
+					ft_putchar(47);
+				}
+
+				else
+				{
+					ft_putchar(42);
+				}
+				a++;
+			}
 		}
 
-		else
+		else		
 		{
-			ft_putchar('*');
+			while (a <= x)
+			{
+				if (a == 1)
+				{
+					ft_putchar(42);
+				}
+
+				else if (a == x)
+				{
+					ft_putchar(42);
+				}
+
+				else
+				{
+					ft_putchar(' ');
+				}
+				a++;
+			}
 		}
-		a++;
+		a = 1;
+		b++;
+		ft_putchar('\n');
 	}
 	return (0);
 }
 
 int 	main()
 {
-	ft_rush01(5, 5);
+	ft_rush01(10, 10);
 	return(0);
 }
