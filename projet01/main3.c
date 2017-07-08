@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 14:22:28 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/08 04:09:44 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/08 04:22:35 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,55 +40,31 @@ int		ft_nbr_li(int n)
 
 int		ft_rush01(int x, int y)
 {
-	int a;
-	int b;
-	int c;
-	int nbr_col;
-	int nbr_li;
+	int a = 1;
 
-	a = 42;
-	b = 47;
-	c = 92;
-	nbr_col = ft_nbr_col(x);
-	nbr_li = ft_nbr_li(y);
-	
-	if (nbr_li >= 0)
+	while (a <= x)
 	{
-		ft_putchar(47);
-		if (nbr_col > 0)
+		if(a == 1)
 		{
+			ft_putchar(47);
+		}
 
-			nbr_col = nbr_col - 2;
-			while (nbr_col >= 0)
-			{
-				ft_putchar(a);
-				nbr_col--;
-			}
+		else if (a == x)
+		{
 			ft_putchar(92);
-			ft_putchar('\n');
 		}
-		nbr_li--;
-	}
-	nbr_li = ft_nbr_li(y) - 1;
-	nbr_col = ft_nbr_col(x);
 
-	while (nbr_col >= 0)
-	{
-		ft_putchar(42);
-		nbr_col = nbr_col - 2;
-		while (nbr_col >= 0)
+		else
 		{
-			ft_putchar(' ');
-			nbr_col--;
+			ft_putchar('*');
 		}
-		ft_putchar(42);
+		a++;
 	}
-
 	return (0);
 }
 
 int 	main()
 {
-	ft_rush01(0, 5);
+	ft_rush01(5, 5);
 	return(0);
 }
