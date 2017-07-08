@@ -6,19 +6,13 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/07 16:29:33 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/07 16:46:54 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/08 22:51:51 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+void	ft_putchar(char c);
 
 void	ft_ft(int *nbr)
 {
 	*nbr = 42;
-}
-
-int main(void)
-{
-	int *nbr;
-	ft_ft(nbr);
-	ft_putnbr(*nbr);
-	return 0;
 }

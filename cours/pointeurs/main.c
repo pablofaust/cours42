@@ -6,23 +6,22 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/06 14:22:28 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/08 01:15:10 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/08 22:27:56 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char ptr);
 
-void	ft_putnbr(int ptr);
-
 int		main()
 {
-	int		tab[10];
-	int		tab2[10];
-	int		*ptr[2];
+	int		a;
+	int		*ptr;
+	int		**ptr2;
+	void	*superptr;
 
-	ptr[0] = tab;
-	ptr[1] = tab2;
-	ptr[1][3] = 42;
-	ft_putnbr(tab2[3]);
+	a = 3;
+	ptr = &a;
+	ptr2 = &ptr;
+	superptr = ptr2;
 	return (0);
 }
