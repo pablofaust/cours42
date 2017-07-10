@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 20:13:48 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/10 12:09:37 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/10 12:15:55 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_atoi(char *str)
 		if ((str[i] == ' ' || str[i] == '+') && nb == 0)
 			nb = 0;
 		else if (str[i] == '-')
-			negatif = 1;
+			negatif = 1; 
 		else if (negatif == 0 && str[i] >= '0' && str[i] <= '9')
 			nb = (nb * 10) + (str[i] - 48);
 		else if (negatif == 1 && str[i] >= '0' && str[i] <= '9')
@@ -41,7 +41,7 @@ int		ft_atoi(char *str)
 
 int		main()
 {
-	char	str[] = "+938 75";
+	char	str[] = "++938 75";
 	printf("%d\n", ft_atoi(str));
 	return(0);
 }
