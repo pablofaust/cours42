@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/09 00:58:11 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/10 15:56:26 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/10 16:36:24 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/11 10:56:51 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_div_mod(int a, int b, int *div, int *mod)
-{
-	int		x;
-	int		y;
+#include <stdio.h>
 
-	div = &x;
-	mod = &y;
-	*div = a / b;
-	*mod = a & b;
+int		ft_iterative_factorial(int nb)
+{
+	int		total;
+
+	if (nb <= 0 || nb >= 13)
+		return (total);
+	else
+	{	
+		total = nb;	
+		while (nb > 2)
+		{
+			total = total * (nb - 1);
+		//	printf("%d\n", total);
+			nb--;
+		}
+	}
+	return(total);
+}
+
+int		main ()
+{
+	int		nb;
+
+	nb = -1;
+	nb = (ft_iterative_factorial(nb));
+	printf("%d\n", nb);
+	return(0);
 }
