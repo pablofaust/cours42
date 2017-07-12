@@ -6,35 +6,25 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/11 14:34:13 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/11 15:03:39 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/12 11:36:24 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdio.h>
 int		ft_iterative_power(int nb, int power)
 {
-	int		cache;
+	int		res;
 
-	cache = nb;
+	res = 1;
 	if (power < 0)
 		return (0);
 	if (power >= 0)
 	{
-		while (power >= 2)
+		while (power > 0)
 		{
-			nb = cache * nb;
+			res = res * nb;
 			power--;
 		}
-		return (nb);
+		return (res);
 	}
-	return(nb);
-}
-
-int		main()
-{
-	int		nb;
-
-	nb = (ft_iterative_power(2, -12));
-	printf("%d\n", nb);
-	return (0);
+	return (res);
 }

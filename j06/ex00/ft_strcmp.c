@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/11 19:31:56 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/11 21:44:19 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/09 20:13:48 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/12 18:30:52 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
-{
-	int		i;
+#include	<stdio.h>
 
-	i = 2;
-	if (nb <= 1)
+int		ft_strcmp(char *s1, char *s2)
+{
+	int		a;
+	int		b;
+
+	a = ft_atoi(s1);
+	b = ft_atoi(s2);
+	if (a > b)
+		return (1);
+	if (a < b)
+		return (- 1);
+	else
 		return (0);
-	while (i < nb)
-	{
-		if (nb % i == 0)
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
+}
+
+int		main()
+{
+	char	s1 [] = "394";
+	char	s2 [] = "394";
+	int		a;
+
+	a = ft_strcmp(s1, s2);
+	printf("%d\n", a);
+	return (0);
 }
