@@ -6,34 +6,35 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 20:13:48 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/12 18:30:52 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/13 22:21:56 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdio.h>
-
 int		ft_strcmp(char *s1, char *s2)
 {
-	int		a;
-	int		b;
+	int		i;
 
-	a = ft_atoi(s1);
-	b = ft_atoi(s2);
-	if (a > b)
-		return (1);
-	if (a < b)
-		return (- 1);
+	i = 0;
+	while (s1[i] && s2[i])
+		i++;
+	if (s1[i])
+		return (s1[i]);
+	if (s2[i])
+		return (s2[i] * -1);
 	else
+	{
+		while (*s1 && *s2)
+		{
+			if (*s1 > *s2)
+				return (*s1);
+			if (*s1 < *s2)
+				return (*s1 - *s2);
+			else
+			{
+				s1++;
+				s2++;
+			}
+		}
 		return (0);
-}
-
-int		main()
-{
-	char	s1 [] = "394";
-	char	s2 [] = "394";
-	int		a;
-
-	a = ft_strcmp(s1, s2);
-	printf("%d\n", a);
-	return (0);
+	}
 }

@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/08 23:28:47 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/13 22:22:24 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/09 20:13:48 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/12 18:30:52 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int *b)
-{
-	int		x;
+#include	<stdio.h>
 
-	x = *a;
-	*a = *b;
-	*b = x;
+int		ft_strcmp(char *s1, char *s2)
+{
+	int		a;
+	int		b;
+
+	a = ft_atoi(s1);
+	b = ft_atoi(s2);
+	if (a > b)
+		return (1);
+	if (a < b)
+		return (- 1);
+	else
+		return (0);
+}
+
+int		main()
+{
+	char	s1 [] = "394";
+	char	s2 [] = "394";
+	int		a;
+
+	a = ft_strcmp(s1, s2);
+	printf("%d\n", a);
+	return (0);
 }
