@@ -6,17 +6,16 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 09:26:42 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/09 10:16:29 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/10 18:17:42 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void	ft_putchar(char c);
+
 void	ft_putstr(char *str)
 {
-	int		i;
-
-	while (str[i] != '\0')
+	while (*str)
 	{
-		ft_putchar(str[i]);
-		i++;
+		ft_putchar(*str++);
 	}
 }

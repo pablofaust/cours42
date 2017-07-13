@@ -6,11 +6,11 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 09:15:52 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/09 09:25:14 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/10 18:07:34 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_ultimate_div_mode(int *a, int *b)
+void	ft_ultimate_div_mod(int *a, int *b)
 {
 	int		x;
 	int		y;
