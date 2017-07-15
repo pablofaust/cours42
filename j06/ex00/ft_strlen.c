@@ -6,17 +6,15 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/09 09:26:42 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/13 22:22:10 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/14 12:28:27 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_len(char *str)
+int		ft_strlen(char *str)
 {
 	int		i;
 
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }
