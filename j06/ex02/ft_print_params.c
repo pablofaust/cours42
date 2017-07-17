@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/14 13:30:05 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/14 15:16:50 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/17 15:31:03 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int		main(int argc, char **argv)
 {
 	if (argc == 1)
 		return (0);
+	argv++;
 	while (*argv)
 	{
 		ft_putstr(*argv);

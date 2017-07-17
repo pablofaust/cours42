@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrev2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/13 22:24:09 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/14 13:14:18 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/15 21:46:20 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/15 22:01:04 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_strlen(char *str);
+#include	<stdio.h>
 
-int		main()
+char	*ft_strrev(char *str)
 {
-	ft_putchar('a');
-	ft_putstr("oeijf");
-	ft_strlen("oeirjf");
-	return(0);
+	int		cache;
+	char	*ptr1;
+	char	*ptr2;
+
+	while (*str)
+	{
+		ptr1 = str;
+		ptr2 = str + 1;
+		cache = *ptr1;
+		*ptr1 = *ptr2;
+		*ptr2 = cache;
+		ptr1++;
+		ptr2++;
+	}
+	return (str);
+}
+
+int		main ()
+{
+	char	*str;
+
+	str = "pablo";
+	printf("%s\n", ft_strrev(str));
+	return (0);
 }
