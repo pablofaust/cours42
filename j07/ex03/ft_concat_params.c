@@ -6,24 +6,18 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/17 21:08:57 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/18 14:11:25 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/18 18:52:38 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
-#include	<stdio.h>
-#include	<unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+#include <stdlib.h>
 
 unsigned int		ft_len(int argc, char **argv)
 {
 	unsigned int	i;
 	unsigned int	len;
 
+	argc = argc + 0;
 	len = 0;
 	argv++;
 	while (*argv)
@@ -40,28 +34,31 @@ unsigned int		ft_len(int argc, char **argv)
 	return (len);
 }
 
-char	*ft_concat_params(int argc, char **argv)
+char				*ft_concat_params(int argc, char **argv)
 {
 	char			*tab;
-	unsigned int	len;
 	unsigned int	i;
+	int				j;
+	int				k;
 
-	if (argc < 1)
-		return (0);
-	len = ft_len(argc, argv);
-	tab = (char*)malloc(sizeof(*tab) * len);
-	while (*argv)
+	if (!(tab = (char*)malloc(sizeof(*tab) * ft_len(argc, argv))))
+		return (NULL);
+	j = 1;
+	k = 0;
+	while (argv[j])
 	{
 		i = 0;
-		while ((*argv)[i])
+		while (argv[j][i])
 		{
-			*tab = (*argv)[i];
+			tab[k] = argv[j][i];
 			i++;
-			tab++;
+			k++;
 		}
-		*tab = '\n';
-		argv++;
+		tab[k] = '\n';
+		k++;
+		j++;
 	}
-	*tab = 0;
+	k--;
+	tab[k] = 0;
 	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 09:11:01 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/18 11:08:21 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/18 20:29:25 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int		main()
 	int			**range;
 	unsigned int	len;
 
-	min = -10;
-	max = 10;
+	min = 0;
+	max = 0;
 	len = ft_ultimate_range(range, min, max);
 	printf("%d\n", len);
 	return (0);

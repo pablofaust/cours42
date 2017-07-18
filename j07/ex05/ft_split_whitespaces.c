@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/18 14:12:34 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/18 23:07:04 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/18 18:33:32 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int		ft_nb_mots(char *str)
 	i = 0;
 	while (str[i])
 	{
-		while ((str[i] == 32 || str[i] == 13 || str[i] == 9 || str[i] == 11 ) && str[i])
+		while ((str[i] == 32 || str[i] == 13 || str[i] == 9) && str[i])
 			i++;
-		while ((str[i] != 32 && str[i] != 13 && str[i] != 9 && str[i] != 11) && str[i])
+		while ((str[i] != 32 && str[i] != 13 && str[i] != 9) && str[i])
 			i++;
 		nb++;
 	}
-	if (str[i - 1] == 32 || str[i - 1] == 13 || str[i - 1] == 9 || str[i - 1] == 11)
+	if (str[i - 1] == 32 || str[i - 1] == 13 || str[i - 1] == 9)
 		nb--;
 	return (nb);
 }
@@ -66,10 +66,10 @@ char	**ft_split_whitespaces(char *str)
 		return (NULL);
 	while (str[end])
 	{
-		while ((str[end] == 32 || str[end] == 13 || str[end] == 9 || str[end] == 11) && str[end])
+		while ((str[end] == 32 || str[end] == 13 || str[end] == 9) && str[end])
 			end++;
 		start = end;
-		while ((str[end] != 32 && str[end] != 13 && str[end] != 9 && str[end] != 11) && str[end])
+		while ((str[end] != 32 && str[end] != 13 && str[end] != 9) && str[end])
 			end++;
 		mot = ft_mot(start, end, str, mot);
 		split[j] = mot;

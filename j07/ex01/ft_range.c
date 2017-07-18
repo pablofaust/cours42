@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/17 21:08:57 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/18 10:24:44 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/18 17:33:05 by pfaust            #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2017/07/18 20:37:24 by pfaust           ###   ########.fr       */
+=======
+/*   Updated: 2017/07/18 18:57:22 by pfaust           ###   ########.fr       */
+>>>>>>> 07adbd9450236cc8d1efdb54d4fccd7a677b457c
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdlib.h>
-#include	<stdio.h>
-#include	<unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+unsigned int	ft_strlen(int min, int max)
 {
-	write(1, &c, 1);
-}
-
-unsigned int		ft_strlen(int min, int max)
-{
-	unsigned int		i;
+	unsigned int	i;
 
 	i = 0;
 	while (min < max)
@@ -32,20 +29,25 @@ unsigned int		ft_strlen(int min, int max)
 	return (i);
 }
 
-int		*ft_range(int min, int max)
+int				*ft_range(int min, int max)
 {
 	int		*range;
 
 	if (min >= max)
-		return(0);
-	range = (int*)malloc(sizeof(*range) * (ft_strlen(min, max) + 1));
+<<<<<<< HEAD
+		return (NULL);
+	if ((range = (int*)malloc(sizeof(*range) * (ft_strlen(min, max)))) == NULL)
+		return NULL;
+=======
+		return (0);
+	if (!(range = (int*)malloc(sizeof(*range) * (ft_strlen(min, max) + 1))))
+		return (NULL);
+>>>>>>> 07adbd9450236cc8d1efdb54d4fccd7a677b457c
 	while (min < max)
 	{
 		*range = min;
-		printf("%d\n", *range);
 		min++;
 		range++;
 	}
-	*range = 0;
 	return (range);
 }

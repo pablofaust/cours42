@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_split_whitespaces.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 09:11:01 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/18 22:09:53 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/18 14:12:34 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/18 22:14:37 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<stdio.h>
-#include	<unistd.h>
+#include <unistd.h>
 
-int		*ft_range(int min, int max);
-
-int		main()
+void	ft_putchar(char c)
 {
-	int		min;
-	int		max;
-	int		*range;
+	write(1, &c, 1);
+}
 
-	min = 0;
-	max = 0;
-	range = ft_range(min, max);
-	/*while (*range)
+void	ft_print_words_tables(char **tab)
+{
+	int		i;
+
+	while (*tab)
 	{
-		printf("%d\n", *range);
-		range++;
-	}*/
-	return (0);
+		i = 0;
+		while ((*tab)[i])
+		{
+			ft_putchar((*tab)[i]);
+			i++;
+		}
+		ft_putchar('\n');
+		tab++;
+	}
 }

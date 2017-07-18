@@ -5,29 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/18 09:11:01 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/18 22:09:53 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/18 14:25:07 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/18 17:00:09 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<stdio.h>
-#include	<unistd.h>
 
-int		*ft_range(int min, int max);
+char	**ft_split_whitespaces(char *str);
+void	ft_print_words_tables(char **tab);
 
 int		main()
 {
-	int		min;
-	int		max;
-	int		*range;
+	char	*str;
+	char 	**ptr;
+	int		i;
 
-	min = 0;
-	max = 0;
-	range = ft_range(min, max);
-	/*while (*range)
-	{
-		printf("%d\n", *range);
-		range++;
-	}*/
+	i = 0;
+	str = "j'ai mal au crane sa mere";
+	ptr = ft_split_whitespaces(str);
+	ft_print_words_tables(ptr);
 	return (0);
 }
