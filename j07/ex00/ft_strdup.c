@@ -1,22 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/09 09:26:42 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/11 08:47:53 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/17 21:08:57 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/17 21:30:12 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_len(char *str)
+#include	<stdlib.h>
+
+int		ft_strlen(char *str)
 {
 	int		i;
 
-	while (str[i] != '\0')
+	i = 0;
+	while (*str)
 	{
 		i++;
+		str++;
 	}
 	return (i);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*dup;
+	int		i;
+
+	if (*src == 0)
+		return (0);
+	dup = (char*)malloc(sizeof(*dup) * (ft_strlen(src) + 1));
+	i = 0;
+	while (i < ft_strlen(src))
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = 0;
+	return (dup);
 }

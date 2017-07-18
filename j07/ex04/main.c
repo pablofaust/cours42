@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/09 09:26:42 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/09 10:16:29 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/18 14:25:07 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/18 16:35:40 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr(char *str)
+#include	<stdio.h>
+
+char	**ft_split_whitespaces(char *str);
+
+int		main()
 {
+	char	*str;
+	char 	**ptr;
 	int		i;
 
-	while (str[i] != '\0')
+	i = 0;
+	str = "j'ai mal au crane sa mere";
+	ptr = ft_split_whitespaces(str);
+	while (*ptr)
 	{
-		ft_putchar(str[i]);
-		i++;
+		printf("%s\n", *ptr);
+		ptr++;
 	}
+	return (0);
 }

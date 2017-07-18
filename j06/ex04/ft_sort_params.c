@@ -6,16 +6,11 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/14 13:30:05 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/17 19:58:16 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/17 20:49:51 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	<unistd.h>
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {
@@ -60,7 +55,7 @@ int		main(int argc, char **argv)
 				str = argv[j];
 				argv[j] = argv[j + i];
 				argv[j + i] = str;
-			}	
+			}
 			i++;
 		}
 		ft_putstr(argv[j]);

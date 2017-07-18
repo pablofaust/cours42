@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/09 20:13:48 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/12 18:30:52 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/18 09:11:01 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/18 11:16:33 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<stdio.h>
+#include	<unistd.h>
 
-int		ft_strcmp(char *s1, char *s2)
+char	*ft_concat_params(int argc, char **argv);
+
+int		main(int argc, char **argv)
 {
-	int		a;
-	int		b;
-
-	a = ft_atoi(s1);
-	b = ft_atoi(s2);
-	if (a > b)
-		return (1);
-	if (a < b)
-		return (- 1);
-	else
-		return (0);
-}
-
-int		main()
-{
-	char	s1 [] = "394";
-	char	s2 [] = "394";
-	int		a;
-
-	a = ft_strcmp(s1, s2);
-	printf("%d\n", a);
+	ft_concat_params(argc, argv);
 	return (0);
 }

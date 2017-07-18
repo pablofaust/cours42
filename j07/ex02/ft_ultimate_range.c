@@ -1,46 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   malloc.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/14 16:31:20 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/14 16:40:30 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/17 21:08:57 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/18 11:04:34 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<stdlib.h>
+#include	<stdio.h>
 #include	<unistd.h>
-#define	LEN		5
 
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+unsigned int		ft_strlen(int min, int max)
 {
-	while (*str)
+	unsigned int		i;
+
+	i = 0;
+	while (min < max)
 	{
-		ft_putchar(*str);
-		str++;
+		i++;
+		min++;
 	}
+	return (i);
 }
 
-int		main()
+int		ft_ultimate_range(int **range, int min, int max)
 {
-	char	*str;
-	int		i;
+	int				*tab;
+	unsigned int	len;
 
-	str = (char*)malloc(sizeof(*str) * (LEN + 1));
-	i = 0;
-	while (i < LEN)
+	if (min >= max)
 	{
-		str[i] = '0' + (i % 10);
-		i++;
+		range = NULL;
+		return (0);
 	}
-	str[i] = 0;
-	ft_putstr(str);
-	return(0);
+	len = ft_strlen(min, max);
+	tab = (int*)malloc(sizeof(*tab) * (len + 1));
+	while (min < max)
+	{
+		*tab = min;
+		printf("%d\n", *tab);
+		min++;
+		tab++;
+	}
+	*tab = 0;
+	range = &tab;
+	return (len);
 }
