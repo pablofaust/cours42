@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_display.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 21:01:56 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/25 10:21:47 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/24 21:03:34 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/25 10:15:27 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_cat.h"
+#ifndef FT_DISPLAY_H
+# define FT_DISPLAY_H
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <errno.h>
 
-int		main(int argc, char **argv)
-{
-	int		fd;
-	int		ret;
-	char	buf[1];
-	int		err;
+void	ft_putstr(char *str);
+void	ft_putchar(char c);
+void	ft_putnbr(int nb);
 
-	if (argc > 2)
-		ft_putstr("Too many arguments.\n");
-	fd = open(argv[1], O_RDONLY);
-	if (fd == - 1)
-		err = errno;
-	ft_putnbr(err);
-	ret = 1;
-	/*while (ret)
-	{
-		ret = read(fd, buf, 1);
-		ft_putchar(buf[0]);
-	}*/
-	return (0);
-}
-
+#endif

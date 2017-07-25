@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_create_elem.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 21:01:56 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/25 10:21:47 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/22 11:36:13 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/25 14:04:49 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_cat.h"
+#include "ft_list.h"
 
-int		main(int argc, char **argv)
+t_list		*ft_list_push_params(int ac, char **av)
 {
-	int		fd;
-	int		ret;
-	char	buf[1];
-	int		err;
+	t_list		*argument;
+	t_list		*begin_list;
 
-	if (argc > 2)
-		ft_putstr("Too many arguments.\n");
-	fd = open(argv[1], O_RDONLY);
-	if (fd == - 1)
-		err = errno;
-	ft_putnbr(err);
-	ret = 1;
-	/*while (ret)
+	(void)ac;
+	begin_list = NULL;
+	av++;
+	while (*av)
 	{
-		ret = read(fd, buf, 1);
-		ft_putchar(buf[0]);
-	}*/
-	return (0);
+		argument = ft_create_elem(*av);
+		argument->next = begin_list;
+		begin_list = argument;
+		av++;
+	}
+	return (begin_list);
 }
-

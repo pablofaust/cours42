@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_list_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 21:01:56 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/25 10:21:47 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/25 13:29:58 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/25 14:11:43 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_cat.h"
+#include "ft_list.h"
 
-int		main(int argc, char **argv)
+void	ft_list_sort(t_list **begin_list, int (*cmp)())
 {
-	int		fd;
-	int		ret;
-	char	buf[1];
-	int		err;
+	t_list	*curseur;
+	t_list	*next;
+	void	*x;
 
-	if (argc > 2)
-		ft_putstr("Too many arguments.\n");
-	fd = open(argv[1], O_RDONLY);
-	if (fd == - 1)
-		err = errno;
-	ft_putnbr(err);
-	ret = 1;
-	/*while (ret)
+	curseur = *begin_list;
+	while (curseur->next)
 	{
-		ret = read(fd, buf, 1);
-		ft_putchar(buf[0]);
-	}*/
-	return (0);
+		next = curseur->next;
+		while (next)
+		{
+			if ((cmp(curseur->data, next->data)) > 0)
+			{
+				x = curseur->data;
+				curseur->data = next->data;
+				next->data = x;
+			}
+			next = next->next;
+		}
+		curseur = curseur->next;
+	}
 }
-

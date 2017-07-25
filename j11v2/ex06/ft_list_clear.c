@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_list_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 21:01:56 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/25 10:21:47 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/22 16:48:21 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/25 09:16:53 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_cat.h"
+#include "ft_list.h"
 
-int		main(int argc, char **argv)
+void	ft_list_clear(t_list **begin_list)
 {
-	int		fd;
-	int		ret;
-	char	buf[1];
-	int		err;
+	t_list	*free_list;
 
-	if (argc > 2)
-		ft_putstr("Too many arguments.\n");
-	fd = open(argv[1], O_RDONLY);
-	if (fd == - 1)
-		err = errno;
-	ft_putnbr(err);
-	ret = 1;
-	/*while (ret)
+	while (*begin_list)
 	{
-		ret = read(fd, buf, 1);
-		ft_putchar(buf[0]);
-	}*/
-	return (0);
+		free_list = *begin_list;
+		free(*begin_list);
+		*begin_list = free_list->next;
+	}
+	*begin_list = NULL;
 }
-

@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 21:01:56 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/25 10:21:47 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/22 17:10:59 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/25 09:18:33 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_cat.h"
+#include "ft_list.h"
 
-int		main(int argc, char **argv)
+void	ft_list_reverse(t_list **begin_list)
 {
-	int		fd;
-	int		ret;
-	char	buf[1];
-	int		err;
+	t_list		*current;
+	t_list		*prev;
 
-	if (argc > 2)
-		ft_putstr("Too many arguments.\n");
-	fd = open(argv[1], O_RDONLY);
-	if (fd == - 1)
-		err = errno;
-	ft_putnbr(err);
-	ret = 1;
-	/*while (ret)
+	current = *begin_list;
+	prev = 0;
+	while (*begin_list)
 	{
-		ret = read(fd, buf, 1);
-		ft_putchar(buf[0]);
-	}*/
-	return (0);
+		*begin_list = current->next;
+		current->next = prev;
+		prev = current;
+		current = *begin_list;
+	}
+	*begin_list = prev;
 }
-
