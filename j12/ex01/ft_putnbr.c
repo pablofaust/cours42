@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/24 21:01:56 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/25 20:43:01 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/12 08:44:17 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/25 10:20:51 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_cat.h"
 
-int		main(int argc, char **argv)
+void	ft_putchar(char c);
+
+void	ft_putnbr(int nb)
 {
-	int		fd;
-	int		ret;
-	char	buf;
-	int		err;
-	int 	i;
-
-	argv++;
-	if (argc < 2)
-		ft_putstr("File name missing.\n");
-	while (*argv)
+	if (nb != -2147483648)
 	{
-		fd = open(*argv, O_RDONLY);
-		ft_putnbr(errno);
-		if (errno == 2)
+		if (nb < 0)
 		{
-			ft_putstr("cat:");
-			ft_putstr(*argv);
-			ft_putstr(": No such file or directory\n");
-		   	return (0);	
+			ft_putchar('-');
+			nb = -nb;
 		}
-		ret = 1;
-		while (ret)
+		if (nb >= 10)
 		{
-			ret = read(fd, buf, 1);
-			ft_putstr(buf);
+			ft_putnbr(nb / 10);
+			ft_putnbr(nb % 10);
 		}
-		argv++;
+		else
+			ft_putchar(nb + 48);
 	}
-	return (0);
+	else
+	{
+		ft_putnbr(-214748364);
+		ft_putchar('8');
+	}
 }
-
