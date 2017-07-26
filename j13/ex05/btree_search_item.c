@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree.h                                         :+:      :+:    :+:   */
+/*   btree_search_item.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/25 23:22:02 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/26 17:07:52 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/26 15:56:01 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/26 17:24:47 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BTREE_H
-# define FT_BTREE_H
-# include <stdlib.h>
+#include "ft_btree.h"
 
-typedef	struct		s_btree
+void	*btree_search_item(t_btree *root, void *data_ref,
+		int (*cmpf)(void *, void *))
 {
-	struct s_btree	*left;
-	struct s_btree	*right;
-	void			*item;
-}					t_btree;
-
-#endif
+	if (root)
+	{
+		btree_search_item(root->left, data_ref, cmpf);
+		if (!(*cmpf)(data_ref, root->item))
+			return (root);
+		btree_search_item(root->right, data_ref, cmpf);
+	}
+	return (0);
+}

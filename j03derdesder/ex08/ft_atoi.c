@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree.h                                         :+:      :+:    :+:   */
+/*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/25 23:22:02 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/26 17:07:52 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/10 19:06:03 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/10 22:58:05 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BTREE_H
-# define FT_BTREE_H
-# include <stdlib.h>
-
-typedef	struct		s_btree
+int		ft_atoi(char *str)
 {
-	struct s_btree	*left;
-	struct s_btree	*right;
-	void			*item;
-}					t_btree;
+	int		nb;
+	int		negatif;
 
-#endif
+	nb = 0;
+	negatif = 1;
+	while (*str == ' ' || *str == '0' || (*str >= '\t' && *str <= '\r'))
+		str++;
+	if (*str == '+')
+		str++;
+	if (*str == '-')
+	{
+		negatif = -1;
+		str++;
+	}
+	while (*str)
+	{
+		if (*str >= '0' && *str <= '9')
+			nb = (nb * 10) + negatif * (*str - 48);
+		else
+			return (nb);
+		str++;
+	}
+	return (nb);
+}

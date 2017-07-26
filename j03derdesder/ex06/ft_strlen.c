@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree.h                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/25 23:22:02 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/26 17:07:52 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/09 09:26:42 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/10 18:54:46 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BTREE_H
-# define FT_BTREE_H
-# include <stdlib.h>
-
-typedef	struct		s_btree
+int	ft_strlen(char *str)
 {
-	struct s_btree	*left;
-	struct s_btree	*right;
-	void			*item;
-}					t_btree;
+	int		i;
 
-#endif
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}

@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_btree.h                                         :+:      :+:    :+:   */
+/*   ft_sort_integer_table.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/07/25 23:22:02 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/26 17:07:52 by pfaust           ###   ########.fr       */
+/*   Created: 2017/07/10 12:25:08 by pfaust            #+#    #+#             */
+/*   Updated: 2017/07/10 15:51:51 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BTREE_H
-# define FT_BTREE_H
-# include <stdlib.h>
-
-typedef	struct		s_btree
+void	ft_sort_integer_table(int *tab, int size)
 {
-	struct s_btree	*left;
-	struct s_btree	*right;
-	void			*item;
-}					t_btree;
+	int		i;
+	int		x;
 
-#endif
+	i = 0;
+	while (i < size - 1)
+	{
+		if (tab[i] < tab[i + 1])
+			i++;
+		if (tab[i] > tab[i + 1])
+		{
+			x = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = x;
+		}
+	}
+}
