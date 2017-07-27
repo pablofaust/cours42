@@ -6,7 +6,7 @@
 /*   By: pfaust <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/26 10:19:38 by pfaust            #+#    #+#             */
-/*   Updated: 2017/07/26 18:07:39 by pfaust           ###   ########.fr       */
+/*   Updated: 2017/07/27 10:25:45 by pfaust           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_prefix(t_btree *root)
 {
 	if (root == 0)
 		return ;
-	printf("%s\n", root->item);
+	printf("%s, ", root->item);
 	print_prefix(root->left);
 	print_prefix(root->right);
 }
@@ -116,7 +116,12 @@ int		main()
 	node = root->right->right;
 	node->left = btree_create_node("3");
 	node->right = btree_create_node("6");
-	printf("%d\n", btree_level_count(root));
+	print_infix(root);
+	printf("\n");
+	print_prefix(root);
+	printf("\n");
+	print_suffix(root);
+	printf("\n");
 	return (0);
 }	
 
